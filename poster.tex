@@ -139,8 +139,8 @@
     Fiducial markers (top: April Tag\cite{apriltag_paper}, bottom: WhyCon\cite{whycon_paper}) allow the drone to determine its position relative to the landing pad using only a normal RGB camera.
 
     \begin{itemize}
-      \item \textbf{April Tag:} provides accurate pose estimation at close range. Eventually it was abandoned for consuming excessive CPU time.
-      \item \textbf{WhyCon:} provide easy recognition at long range. The center of the WhyCon marker is the target landing site.
+      \item \textbf{April Tag:} provides accurate pose estimation at close range, when the WhyCon marker is too big for the camera to fully see. Eventually it was abandoned for consuming excessive CPU time.
+      \item \textbf{WhyCon:} provide easier/faster recognition at long range. The center of the WhyCon marker is the target landing site.
     \end{itemize}
 
 %    The larger WhyCon marker is easier for the system to recognize at long range, while the April Tag marker provides more accurate pose estimates at close range.
