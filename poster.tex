@@ -131,22 +131,20 @@
 
   \begin{block}{Landing Pad}
 
-    \begin{wrapfigure}{r}{8cm}
-      \fbox{\includegraphics[angle=180, width=8cm]{landing_pad.png}}
-%      \caption*{Initial landing pad design.}
-    \end{wrapfigure}
+    \vspace{0.5cm}
+    \begin{columns}
+      \begin{column}{0.65\textwidth}
+        Fiducial markers (top: April Tag\cite{apriltag_paper}, bottom: WhyCon\cite{whycon_paper}) allow the drone to determine its position relative to the landing pad using only a normal RGB camera.
 
-    Fiducial markers (top: April Tag\cite{apriltag_paper}, bottom: WhyCon\cite{whycon_paper}) allow the drone to determine its position relative to the landing pad using only a normal RGB camera.
-
-    \begin{itemize}
-      \item \textbf{April Tag:} provides accurate pose estimation at close range, when the WhyCon marker is too big for the camera to fully see. Eventually it was abandoned for consuming excessive CPU time.
-      \item \textbf{WhyCon:} provide easier/faster recognition at long range. The center of the WhyCon marker is the target landing site.
-    \end{itemize}
-
-%    The larger WhyCon marker is easier for the system to recognize at long range, while the April Tag marker provides more accurate pose estimates at close range.
-%    The April Tag marker is positioned in front of the WhyCon marker in order to keep it in the field of view of the camera at close range.
-%    The drone touches down in the center of the WhyCon marker.
-%    Eventually the April Tag marker was abandoned for consuming excessive processing power.
+        \begin{itemize}
+          \item \textbf{April Tag:} provides accurate pose estimation at close range, when the WhyCon marker is too big for the camera to fully see. Eventually it was abandoned for consuming excessive CPU time.
+          \item \textbf{WhyCon:} provide easier/faster recognition at long range. The center of the WhyCon marker is the target landing site.
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.3\textwidth}
+        \fbox{\includegraphics[angle=180, width=7cm]{landing_pad.png}}
+      \end{column}
+    \end{columns}
 
   \end{block}
 
@@ -156,60 +154,57 @@
 
 \begin{column}{\colwidth}
 
-  \begin{alertblock}{A block containing some math}
+  \begin{alertblock}{Performance}
 
-    Nullam non est elit. In eu ornare justo. Maecenas porttitor sodales lacus,
-    ut cursus augue sodales ac.
+    \heading{Flight}
+      Both drones are very stable and reliable, with pitch/roll variance of $\approx 3^{\circ}$ in high wind, as shown below.
+      They have safe flight times of about 15 minutes and enough thrust to carry additional instruments/sensors.
+      \begin{figure}
+        \includegraphics[width=0.3575\textwidth]{stability.png}
+        \hspace{1cm}
+        \includegraphics[width=0.45\textwidth]{drone_in_flight.png}
+        \caption*{Left: pitch, roll, altitude during hover. Right: flight (Scan QR in top right for video!)}
+      \end{figure}
 
-    $$
-    \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
-    $$
+    \vspace{-0.5cm}
+    \heading{Autonomous Landing}
 
-    Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
-    faucibus. Cras eleifend dolor eu nulla suscipit suscipit. Sed lobortis non
-    felis id vulputate.
+      \begin{itemize}
+        \item Both drones are able to track the landing pad during lab testing.
+        \item Jetson Nano has power issues in field testing and is unable to track.
+        \item Google Coral drone is able to track and approach the landing pad.
+        \item WhyCon system has issues with orientation at close range (beyond the scope of this project).
+      \end{itemize}
 
-    \heading{A heading inside a block}
-
-    Praesent consectetur mi $x^2 + y^2$ metus, nec vestibulum justo viverra
-    nec. Proin eget nulla pretium, egestas magna aliquam, mollis neque. Vivamus
-    dictum $\mathbf{u}^\intercal\mathbf{v}$ sagittis odio, vel porta erat
-    congue sed. Maecenas ut dolor quis arcu auctor porttitor.
-
-    \heading{Another heading inside a block}
-
-    Sed augue erat, scelerisque a purus ultricies, placerat porttitor neque.
-    Donec $P(y \mid x)$ fermentum consectetur $\nabla_x P(y \mid x)$ sapien
-    sagittis egestas. Duis eget leo euismod nunc viverra imperdiet nec id
-    justo.
+%      Autonomous landing has nearly been achieved, but some adjustments to the fiducial marker system must be made to improve pose estimation reliability.
 
   \end{alertblock}
 
-  \begin{block}{Nullam vel erat at velit convallis laoreet}
+  \begin{block}{Future Work}
 
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
-    scelerisque congue diam. Fusce dapibus dui ut augue pulvinar iaculis.
-
-    \begin{table}
-      \centering
-      \begin{tabular}{l r r c}
-        \toprule
-        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
-        \midrule
-        Foo & 13.37 & 384,394 & \alpha \\
-        Bar & 2.17 & 1,392 & \beta \\
-        Baz & 3.14 & 83,742 & \delta \\
-        Qux & 7.59 & 974 & \gamma \\
-        \bottomrule
-      \end{tabular}
-      \caption{A table caption.}
-    \end{table}
+    \begin{itemize}
+      \item \textbf{Change pose estimation system:} either fix WhyCon orientation issues, or develop a more robust solution (new marker, deep learning model).
+      \item \textbf{More autonomous missions:} navigation, data collection, mapping, object recognition/tracking.
+      \item \textbf{Add more instruments/sensors:} depth/hyperspectral cameras.
+    \end{itemize}
 
   \end{block}
 
-  \begin{block}{References}
+  \begin{alertblock}{Contact Us}
+    We want to hear from you!
+    If you are interested in participating or have a project idea involving the drones, feel free to contact us:
 
+    \begin{center}
+      \begin{tabular}{|l|l|}
+        \hline
+        Joshua Springer & joshua19@ru.is\\\hline
+        Marcel Kyas & marcel@ru.is\\\hline
+    \end{tabular}
+    \end{center}
+  \end{alertblock}
+
+  \begin{block}{References}
+    \vspace{-0.5cm}
 %    \nocite{*}
     \bibliographystyle{ieeetr}
     \footnotesize{\bibliography{poster}}
