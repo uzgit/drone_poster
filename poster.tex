@@ -22,7 +22,10 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{pgfplots}
-\usepackage{subfig}
+%\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
+
 \usepackage[export]{adjustbox}
 \usepackage{wrapfig}
 \usepackage{lipsum}
@@ -88,15 +91,38 @@
 
     \heading{Custom 3D-Printed Components}
 
+%    \begin{figure}
+%      \centering
+%      \subfloat[Protective canopy.]{\label{figur:1}\includegraphics[width=0.3\textwidth]{canopy.png}}
+%      \hspace{1cm}
+%      \subfloat[Component mounting plate.]{\label{figur:1}\includegraphics[width=0.3\textwidth]{component_mounting_plate.png}}
+%      \\
+%      \subfloat[Google Coral camera case.]{\label{figur:1}\includegraphics[width=0.3\textwidth]{coral_case.png}}
+%      \hspace{1cm}
+%      \subfloat[Jetson Nano camera case.]{\label{figur:1}\includegraphics[width=0.3\textwidth]{nano_case.png}}
+%    \end{figure}
+
     \begin{figure}
       \centering
-      \subfloat[Protective canopy.]{\label{figur:1}\includegraphics[width=0.3\textwidth]{canopy.png}}
+      \begin{subfigure}[b]{0.33\textwidth}
+        \includegraphics[width=\textwidth]{canopy.png}
+        \caption*{Protective Canopy.}
+      \end{subfigure}
       \hspace{1cm}
-      \subfloat[Component mounting plate.]{\label{figur:1}\includegraphics[width=0.3\textwidth]{component_mounting_plate.png}}
-      \\
-      \subfloat[Google Coral camera case.]{\label{figur:1}\includegraphics[width=0.3\textwidth]{coral_case.png}}
+      \begin{subfigure}[b]{0.33\textwidth}
+        \includegraphics[width=\textwidth]{component_mounting_plate.png}
+        \caption*{Component mounting plate.}
+      \end{subfigure}
+
+      \begin{subfigure}[b]{0.33\textwidth}
+        \includegraphics[width=\textwidth]{coral_case.png}
+        \caption*{Google Coral camera case.}
+      \end{subfigure}
       \hspace{1cm}
-      \subfloat[Jetson Nano camera case.]{\label{figur:1}\includegraphics[width=0.3\textwidth]{nano_case.png}}
+      \begin{subfigure}[b]{0.33\textwidth}
+        \includegraphics[width=\textwidth]{nano_case.png}
+        \caption*{Jetson Nano camera case.}
+      \end{subfigure}
     \end{figure}
   \end{alertblock}
 
@@ -146,6 +172,8 @@
       \end{column}
     \end{columns}
 
+    The landing pad graphic is printed on white paper and attached to a rigid piece of plastic.
+
   \end{block}
 
 \end{column}
@@ -192,12 +220,13 @@
 
   \begin{alertblock}{Contact Us}
     We want to hear from you!
-    If you are interested in participating or have a project idea involving the drones, feel free to contact us:
+    If you are interested in participating or have a project idea involving drones, feel free to contact us:
 
     \begin{center}
-      \begin{tabular}{|l|l|}
+%    \begin{tabular}{|l|l|}
+    \begin{tabular}{|ll|}
         \hline
-        Joshua Springer & joshua19@ru.is\\\hline
+        Joshua Springer & joshua19@ru.is\\%\hline
         Marcel Kyas & marcel@ru.is\\\hline
     \end{tabular}
     \end{center}
